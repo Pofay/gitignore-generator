@@ -37,7 +37,7 @@ Doesn't work since vim and most text editors reside in the [Global Folder][6] of
 
     gitignore-generator generate -c pwd Global/Vim // Example using vim
  
-    gitignore-generator generate -c pwd Glboal/SublimeText.gitignore // Example using Sublime Text
+    gitignore-generator generate -c pwd Glboal/SublimeText // Example using Sublime Text
 
 
 [1]: https://developer.github.com/v3/
