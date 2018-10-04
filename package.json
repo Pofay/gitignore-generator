@@ -1,5 +1,5 @@
 {
-  "name": "gitignore_generator",
+  "name": "gitignore-generator",
   "version": "1.0.0",
   "description": "An attempt at making a command line app in NodeJS that generates a .gitignore file",
   "main": "./dist/index.js",
