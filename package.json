@@ -1,0 +1,45 @@
+{
+  "name": "gitignore_generator",
+  "version": "1.0.0",
+  "description": "An attempt at making a command line app in NodeJS that generates a .gitignore file",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "yarn clean && babel src -d dist --source-maps",
+    "start": "node dist/index.js",
+    "test": "mocha --require @babel/register --exit",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "node",
+    ".gitignore",
+    "command-line"
+  ],
+  "author": "Gian Carlo I. Gilos",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.1",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
+    "eslint": "^5.5.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.14.2"
+  },
+  "dependencies": {
+    "commander": "^2.18.0",
+    "fluture": "^10.1.0",
+    "node-fetch": "^2.2.0",
+    "ramda": "^0.25.0",
+    "rxjs": "^6.3.2",
+    "rxjs-compat": "^6.3.2"
+  }
+}
