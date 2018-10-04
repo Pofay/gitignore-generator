@@ -17,25 +17,27 @@ Heres an example on creating a .gitignore for node in the current directory and 
 
 `-c, --concatenate`: Just concatenates the content to an existing .gitignore file in the directory. 
 
-`-o, --overwrite`: The default behavior. Overwrites the .gitignore inside the directory.
+`-o, --overwrite`: **The default behavior**. Overwrites the .gitignore inside the directory.
 
-Note: *In both cases if the file does not exist, it will just create the file with its contents inside the directory*
+Note: *In both cases, if the file doesn't exist inside the directory it will just create it.*
 
 ## Issues
 
-Currently the project can't directly add .gitignore content from text-editors (i.e vim, sublime text) So using it like this: 
+Currently the project can't directly add .gitignore content from text-editors (i.e vim, sublime text) 
 
-  gitignore-generator generate -c pwd vim
+So using it like this: 
 
-  gitignore-generator generate -c pwd sublimeText
+    gitignore-generator generate -c pwd vim
+
+    gitignore-generator generate -c pwd sublimeText
 
 Doesn't work since vim and most text editors reside in the [Global Folder][6] of the repository
 
 **To bypass this issue use the full path:**
 
-  gitignore-generator generate -c pwd Global/Vim // Example using vim
+    gitignore-generator generate -c pwd Global/Vim // Example using vim
  
-  gitignore-generator generate -c pwd Glboal/SublimeText.gitignore // Example using Sublime Text
+    gitignore-generator generate -c pwd Glboal/SublimeText.gitignore // Example using Sublime Text
 
 
 [1]: https://developer.github.com/v3/
