@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import program from 'commander'
 import getIgnoreContents from './gitignore-content-requester'
 import { scan, mergeMap } from 'rxjs/operators'
