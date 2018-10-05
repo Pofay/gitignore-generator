@@ -1,9 +1,22 @@
 # A Simple Gitignore Generator
 
-Under the hood this project just uses [Github Api][1] and makes a request through the API on the [.gitignore repository][2]. It uses [RxJS][5] for API requests and transformations
+Under the hood this project just uses [Github Api][1] and makes a request through the API on the [.gitignore repository][2]. It uses [RxJS][5] for API requests, transform JSON content to a String and writing or append the String content to the .gitignore file.
 
 Note: **This project has no tests whatsoever**. I'm only making this to test my knowledge on [Monads][4] and [Observable as an IO Monad][3]
 as well as making a CLI App in NodeJS. 
+
+## Installation
+
+Note: **I'm only covering Linux (and possibly MacOS) with this installation**
+
+Clone the repository to your directory of choosing: `git clone https://github.com/Pofay/gitignore-generator.git`
+
+Change directory to repository and run `npm link`:
+
+    cd gitignore-generator
+    npm link
+
+**The command should appear in your terminal when you input `git` and press tab as gitignore-generator**
 
 ## Commands
 
