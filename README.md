@@ -9,11 +9,20 @@ as well as making a CLI App in NodeJS.
 
 Note: **I'm only covering Linux (and possibly MacOS) with this installation**
 
+You need the following installed in your machine
+
+- Yarn
+- Node
+
 Clone the repository to your directory of choosing: `git clone https://github.com/Pofay/gitignore-generator.git`
 
-Change directory to repository and run `npm link`:
+Change directory to repository:
 
     cd gitignore-generator
+
+and run the following:
+
+    yarn install
     npm link
 
 **The command should appear in your terminal when you input `git` and press tab as gitignore-generator**
