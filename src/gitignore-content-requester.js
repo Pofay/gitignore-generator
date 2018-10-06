@@ -9,19 +9,28 @@ const constructUrl = R.curry(
   (url, directive) => `${url}/${capitalize(directive)}.gitignore`
 )
 
-const capitalize = str => str.charAt(0).toUpperCase() + str.substr(1)
+const flipConcat = R.flip(R.concat)
+
+const capitalize = str =>
+  R.pipe(
+    R.head,
+    R.toUpper,
+    flipConcat(R.tail(str))
+  )(str)
 
 // httpGet :: String -> Promise e r
 const httpGet = url => fetch(url)
 
-// httpGetO :: String -> Observable
-const httpGetO = url => from(httpGet(url).then(res => res.json()))
+// httpGetObservable :: String -> Observable
+const httpGetObservable = url => from(httpGet(url).then(res => res.json()))
 
+// constructRequestersFrom :: String -> Observable
 const constructRequestersFrom = R.pipe(
   constructUrl(api),
-  httpGetO
+  httpGetObservable
 )
 
+// getIgnoreContents :: List -> Observable
 function getIgnoreContents (programmingLanguages) {
   const requesters = R.map(constructRequestersFrom, programmingLanguages)
   return forkJoin(requesters).pipe(
@@ -32,10 +41,8 @@ function getIgnoreContents (programmingLanguages) {
           ? throwError(
             `No associated .gitignore file in Github for one of given programming languages [ ${programmingLanguages} ]`
           )
-          : of({ content: obj.content, encoding: obj.encoding })
-    ),
-
-    mergeMap(obj => of(Buffer.from(obj.content, obj.encoding).toString()))
+          : of(Buffer.from(obj.content, obj.encoding).toString())
+    )
   )
 }
 

@@ -4,6 +4,7 @@ import program from 'commander'
 import getIgnoreContents from './gitignore-content-requester'
 import { scan, mergeMap } from 'rxjs/operators'
 import { appendFileObservable, writeFileObservable } from './fs-observable'
+import chalk from 'chalk'
 
 const gitIgnore = dir => `${dir}/.gitignore`
 
@@ -28,9 +29,9 @@ program
         .subscribe(
           () =>
             console.log(
-              'Successful appended contents to current .gitignore in directory'
+              chalk.green('Successful appended contents to current .gitignore in directory')
             ),
-          err => console.log(err)
+          err => console.log(chalk.red(err))
         )
     } else {
       getIgnoreContents(programmingLanguages)
@@ -41,9 +42,9 @@ program
         .subscribe(
           () =>
             console.log(
-              'Successful overwrite to current .gitignore in directory'
+              chalk.green('Successful overwrite to current .gitignore in directory')
             ),
-          err => console.log(err)
+          err => console.log(chalk.red(err))
         )
     }
   })
