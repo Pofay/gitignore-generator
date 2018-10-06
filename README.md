@@ -23,6 +23,7 @@ Change directory to repository:
 and run the following:
 
     yarn install
+    yarn build
     npm link
 
 **The command should appear in your terminal when you input `git` and press tab as gitignore-generator**
